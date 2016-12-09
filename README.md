@@ -18,3 +18,4 @@ Ele traz uma nova abordagem que visa agilizar o processo de compra, venda e loca
 * [Documento de Visão](https://github.com/ilson-nobrega/imobilize/blob/master/Documento_de_Visao.pdf)
 * [Especificação de Hardware](https://github.com/ilson-nobrega/imobilize/blob/master/Especifica%C3%A7%C3%A3o%20de%20Hardware.pdf)
 * [Modelo Conceitual](https://github.com/ilson-nobrega/imobilize/blob/master/Modelo%20Conceitual.jpg)
+* [Especificação de Requisitos](https://github.com/ilson-nobrega/imobilize/blob/master/Modelo_Requisitos%20PI.pdf)
