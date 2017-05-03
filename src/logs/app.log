@@ -45,3 +45,6 @@
 [2017-05-02 22:52:46] slim-app.INFO: Imobilize '/register' route [] {"uid":"695939b"}
 [2017-05-02 23:14:57] slim-app.INFO: Imobilize '/register' route [] {"uid":"1506f3a"}
 [2017-05-03 00:01:10] slim-app.INFO: Imobilize '/login' route [] {"uid":"fafdf57"}
+[2017-05-03 00:02:54] slim-app.INFO: Imobilize '/register' route [] {"uid":"f84db5e"}
+[2017-05-03 00:13:45] slim-app.INFO: Imobilize '/register' route [] {"uid":"f74f976"}
+[2017-05-03 00:13:53] slim-app.INFO: Imobilize '/register' route [] {"uid":"fbbca62"}

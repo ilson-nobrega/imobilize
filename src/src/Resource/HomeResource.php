@@ -33,17 +33,19 @@ class HomeResource extends AbstractResource
 
     public function doRegister($data){
 
-        $query = "SELECT usuario, senha 
-                  FROM corretor 
-                  WHERE usuario = '" . $data['usuario'] . "'";
+        $query = "INSERT INTO corretor (creci, nome ,usuario, senha) VALUES (?,?,?,?)";
 
         $dbFactory = $this->dbFactory;
         $stmt = $dbFactory::prepare($query);
-        $stmt->execute();
-        $result = $stmt->fetch();
+        $result = $stmt->execute(array(
+            $data['creci'],
+            $data['nome'],
+            $data['usuario'],
+            Validator::encryptField($data['senha'])
+        ));
 
         if($result){
-            return Validator::verifyEncryptedFieldValue($result->senha, $data['senha']);
+            return true;
         }else{
             return false;
         }
