@@ -7,6 +7,7 @@ $app->get('/', 'HomeAction:indexAction');
 //Login
 $app->get('/login', 'HomeAction:loginAction');
 $app->post('/login', 'HomeAction:doLoginAction');
+$app->get('/logout', 'HomeAction:logoutAction');
 
 //Register
 $app->get('/register', 'HomeAction:registerAction');

@@ -15,7 +15,7 @@ class HomeResource extends AbstractResource
 {
     public function doLogin($data){
 
-        $query = "SELECT usuario, senha 
+        $query = "SELECT usuario, senha, creci, nome
                   FROM corretor 
                   WHERE usuario = '" . $data['usuario'] . "'";
 
@@ -24,8 +24,9 @@ class HomeResource extends AbstractResource
         $stmt->execute();
         $result = $stmt->fetch();
 
-        if($result){
-            return Validator::verifyEncryptedFieldValue($result->senha, $data['senha']);
+        if($result && Validator::verifyEncryptedFieldValue($result->senha, $data['senha'])){
+            unset($result->senha);
+            return $result;
         }else{
             return false;
         }

@@ -3,6 +3,7 @@
 namespace Imobilize\Src\Controller;
 
 
+use Imobilize\Src\Helper\CheckLogin;
 use Imobilize\Src\Resource\AdminResource;
 use Psr\Log\LoggerInterface;
 use Slim\Views\Twig;
@@ -22,10 +23,10 @@ class AdminAction
 
     public function indexAction($request, $response, $args)
     {
-        if (!isset($_SESSION['usuario'])) {
+        if (!CheckLogin::checkLogin()) {
             return $response->withRedirect('/login');
         } else {
-            return $this->view->render($response, 'login.twig');
+            return $this->view->render($response, '/pages/home.twig', $_SESSION['user']);
         }
     }
 }

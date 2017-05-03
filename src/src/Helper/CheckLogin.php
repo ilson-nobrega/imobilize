@@ -13,21 +13,36 @@ class CheckLogin
 {
     public static function checkLogin()
     {
-        session_start();
-        if (isset($_SESSION['usuario'])) {
-            if (strtotime($_SESSION['usuario']) < strtotime(date("d-m-Y H:i:s"))) {
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+        if (isset($_SESSION['user'])) {
+            if (strtotime($_SESSION['user']['time']) < strtotime(date("d-m-Y H:i:s"))) {
                 return false;
             } else {
                 return true;
             }
-        }else{
+        } else {
             return false;
         }
     }
 
-    public static function setLogin()
+    public static function setLogin($data)
     {
-        session_start();
-        $_SESSION['usuario'] = date("d-m-Y H:i:s", strtotime('+2 hours'));
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+        $_SESSION['user']['time'] = date("d-m-Y H:i:s", strtotime('+2 hours'));
+        $_SESSION['user']['data'] = $data;
+    }
+
+    public static function endLogin()
+    {
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+        unset($_SESSION['user']);
+        session_destroy();
+        return true;
     }
 }

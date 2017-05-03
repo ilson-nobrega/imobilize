@@ -35,12 +35,12 @@ $container['logger'] = function ($c) {
 // Action factories
 // -----------------------------------------------------------------------------
 $container['HomeAction'] = function ($c) {
-    $homeResource = new Imobilize\Src\Resource\HomeResource($c->get('dbFactory'));
-    return new \Imobilize\Src\Controller\HomeAction($c->get('logger'), $c->get('view'), $homeResource);
+    $resource = new Imobilize\Src\Resource\HomeResource($c->get('dbFactory'));
+    return new \Imobilize\Src\Controller\HomeAction($c->get('logger'), $c->get('view'), $resource);
 };
-$container['HomeAction'] = function ($c) {
-    $homeResource = new Imobilize\Src\Resource\HomeResource($c->get('dbFactory'));
-    return new \Imobilize\Src\Controller\HomeAction($c->get('logger'), $c->get('view'), $homeResource);
+$container['AdminAction'] = function ($c) {
+    $resource = new Imobilize\Src\Resource\AdminResource($c->get('dbFactory'));
+    return new \Imobilize\Src\Controller\AdminAction($c->get('logger'), $c->get('view'), $resource);
 };
 
 // -----------------------------------------------------------------------------

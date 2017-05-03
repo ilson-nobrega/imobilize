@@ -42,8 +42,8 @@ class HomeAction
 
     public function doLoginAction($request, $response, $args)
     {
-        if ($this->resource->doLogin($request->getParsedBody())) {
-            CheckLogin::setLogin();
+        if ($data = $this->resource->doLogin($request->getParsedBody())) {
+            CheckLogin::setLogin($data);
             return $response->withRedirect('/admin/home');
         } else {
             return $this->view->render($response, 'login.twig',
@@ -54,6 +54,13 @@ class HomeAction
                     ]
                 ]
             );
+        }
+    }
+
+    public function logoutAction($request, $response, $args)
+    {
+        if (CheckLogin::endLogin()) {
+            return $response->withRedirect('/login');
         }
     }
 
