@@ -30,4 +30,22 @@ class HomeResource extends AbstractResource
             return false;
         }
     }
+
+    public function doRegister($data){
+
+        $query = "SELECT usuario, senha 
+                  FROM corretor 
+                  WHERE usuario = '" . $data['usuario'] . "'";
+
+        $dbFactory = $this->dbFactory;
+        $stmt = $dbFactory::prepare($query);
+        $stmt->execute();
+        $result = $stmt->fetch();
+
+        if($result){
+            return Validator::verifyEncryptedFieldValue($result->senha, $data['senha']);
+        }else{
+            return false;
+        }
+    }
 }

@@ -79,6 +79,9 @@ class __TwigTemplate_2724f4c831dc7f6568857878e4fdad6874d261f2d0cb81ad4bfd77b27f4
                                 <input class=\"form-control\" placeholder=\"Senha\" name=\"senha\" type=\"password\" value=\"\">
                             </div>
                             <input type=\"submit\" class=\"btn btn-lg btn-success btn-block\" value=\"Entrar\">
+                            <div class=\"form-group text-center\">
+                                ou <a href=\"/register\">registre-se</a>.
+                            </div>
                         </fieldset>
                     </form>
                 </div>
@@ -178,6 +181,9 @@ class __TwigTemplate_2724f4c831dc7f6568857878e4fdad6874d261f2d0cb81ad4bfd77b27f4
                                 <input class=\"form-control\" placeholder=\"Senha\" name=\"senha\" type=\"password\" value=\"\">
                             </div>
                             <input type=\"submit\" class=\"btn btn-lg btn-success btn-block\" value=\"Entrar\">
+                            <div class=\"form-group text-center\">
+                                ou <a href=\"/register\">registre-se</a>.
+                            </div>
                         </fieldset>
                     </form>
                 </div>

@@ -32,3 +32,16 @@
 [2017-05-02 22:19:39] slim-app.INFO: Imobilize '/' route [] {"uid":"bc2dfd8"}
 [2017-05-02 22:20:27] slim-app.INFO: Imobilize '/' route [] {"uid":"70b89b8"}
 [2017-05-02 22:20:28] slim-app.INFO: Imobilize '/' route [] {"uid":"4957510"}
+[2017-05-02 22:24:17] slim-app.INFO: Imobilize '/' route [] {"uid":"a6fc70c"}
+[2017-05-02 22:46:02] slim-app.INFO: Imobilize '/login' route [] {"uid":"d9c73c3"}
+[2017-05-02 22:49:01] slim-app.INFO: Imobilize '/register' route [] {"uid":"7413898"}
+[2017-05-02 22:50:01] slim-app.INFO: Imobilize '/register' route [] {"uid":"97adbf1"}
+[2017-05-02 22:50:29] slim-app.INFO: Imobilize '/register' route [] {"uid":"c11cca7"}
+[2017-05-02 22:51:43] slim-app.INFO: Imobilize '/register' route [] {"uid":"5054ed8"}
+[2017-05-02 22:52:24] slim-app.INFO: Imobilize '/login' route [] {"uid":"7c31a98"}
+[2017-05-02 22:52:27] slim-app.INFO: Imobilize '/register' route [] {"uid":"caa0fbd"}
+[2017-05-02 22:52:28] slim-app.INFO: Imobilize '/login' route [] {"uid":"e398e6c"}
+[2017-05-02 22:52:44] slim-app.INFO: Imobilize '/login' route [] {"uid":"00e9a11"}
+[2017-05-02 22:52:46] slim-app.INFO: Imobilize '/register' route [] {"uid":"695939b"}
+[2017-05-02 23:14:57] slim-app.INFO: Imobilize '/register' route [] {"uid":"1506f3a"}
+[2017-05-03 00:01:10] slim-app.INFO: Imobilize '/login' route [] {"uid":"fafdf57"}

@@ -38,6 +38,10 @@ $container['HomeAction'] = function ($c) {
     $homeResource = new Imobilize\Src\Resource\HomeResource($c->get('dbFactory'));
     return new \Imobilize\Src\Controller\HomeAction($c->get('logger'), $c->get('view'), $homeResource);
 };
+$container['HomeAction'] = function ($c) {
+    $homeResource = new Imobilize\Src\Resource\HomeResource($c->get('dbFactory'));
+    return new \Imobilize\Src\Controller\HomeAction($c->get('logger'), $c->get('view'), $homeResource);
+};
 
 // -----------------------------------------------------------------------------
 // Database Factory
