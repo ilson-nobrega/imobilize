@@ -73,7 +73,7 @@ class __TwigTemplate_2724f4c831dc7f6568857878e4fdad6874d261f2d0cb81ad4bfd77b27f4
         echo "                    <form role=\"form\" method=\"POST\" action=\"/login\">
                         <fieldset>
                             <div class=\"form-group\">
-                                <input class=\"form-control\" placeholder=\"Usuário\" name=\"usuario\" type=\"text\" autofocus>
+                                <input class=\"form-control\" placeholder=\"Número do Creci\" name=\"creci\" type=\"text\" autofocus>
                             </div>
                             <div class=\"form-group\">
                                 <input class=\"form-control\" placeholder=\"Senha\" name=\"senha\" type=\"password\" value=\"\">
@@ -175,7 +175,7 @@ class __TwigTemplate_2724f4c831dc7f6568857878e4fdad6874d261f2d0cb81ad4bfd77b27f4
                     <form role=\"form\" method=\"POST\" action=\"/login\">
                         <fieldset>
                             <div class=\"form-group\">
-                                <input class=\"form-control\" placeholder=\"Usuário\" name=\"usuario\" type=\"text\" autofocus>
+                                <input class=\"form-control\" placeholder=\"Número do Creci\" name=\"creci\" type=\"text\" autofocus>
                             </div>
                             <div class=\"form-group\">
                                 <input class=\"form-control\" placeholder=\"Senha\" name=\"senha\" type=\"password\" value=\"\">

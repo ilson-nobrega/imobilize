@@ -15,9 +15,9 @@ class HomeResource extends AbstractResource
 {
     public function doLogin($data){
 
-        $query = "SELECT usuario, senha, creci, nome
+        $query = "SELECT senha, creci, nome
                   FROM corretor 
-                  WHERE usuario = '" . $data['usuario'] . "'";
+                  WHERE creci = '" . $data['creci'] . "'";
 
         $dbFactory = $this->dbFactory;
         $stmt = $dbFactory::prepare($query);
@@ -34,21 +34,43 @@ class HomeResource extends AbstractResource
 
     public function doRegister($data){
 
-        $query = "INSERT INTO corretor (creci, nome ,usuario, senha) VALUES (?,?,?,?)";
+        if($this->checkExistingRegister($data)){
+            $query = "INSERT INTO corretor (creci, nome , senha) VALUES (?,?,?)";
+            $dbFactory = $this->dbFactory;
+            $stmt = $dbFactory::prepare($query);
+            $result = $stmt->execute(array(
+                $data['creci'],
+                $data['nome'],
+                Validator::encryptField($data['senha'])
+            ));
+            if($result){
+                $obj = new \stdClass();
+                $obj->creci = $data['creci'];
+                $obj->nome = $data['nome'];
+                return $obj;
+            }else{
+                return false;
+            }
+        } else {
+            return false;
+        }
+
+    }
+
+    public function checkExistingRegister($data){
+        $query = "SELECT nome
+                  FROM corretor 
+                  WHERE creci = '" . $data['creci'] . "'";
 
         $dbFactory = $this->dbFactory;
         $stmt = $dbFactory::prepare($query);
-        $result = $stmt->execute(array(
-            $data['creci'],
-            $data['nome'],
-            $data['usuario'],
-            Validator::encryptField($data['senha'])
-        ));
+        $stmt->execute();
+        $result = $stmt->fetch();
 
         if($result){
-            return true;
-        }else{
             return false;
+        }else{
+            return true;
         }
     }
 }

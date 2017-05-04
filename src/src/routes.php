@@ -14,4 +14,6 @@ $app->get('/register', 'HomeAction:registerAction');
 $app->post('/register', 'HomeAction:doRegisterAction');
 
 //Admin
-$app->get('/admin/home', 'AdminAction:indexAction');
+$app->get('/admin/dashboard', 'AdminAction:indexAction');
+
+$app->get('/admin/proprietarios', 'ProprietarioAction:indexAction');

@@ -42,6 +42,10 @@ $container['AdminAction'] = function ($c) {
     $resource = new Imobilize\Src\Resource\AdminResource($c->get('dbFactory'));
     return new \Imobilize\Src\Controller\AdminAction($c->get('logger'), $c->get('view'), $resource);
 };
+$container['ProprietarioAction'] = function ($c) {
+    $resource = new Imobilize\Src\Resource\ProprietarioResource($c->get('dbFactory'));
+    return new \Imobilize\Src\Controller\ProprietarioAction($c->get('logger'), $c->get('view'), $resource);
+};
 
 // -----------------------------------------------------------------------------
 // Database Factory

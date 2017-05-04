@@ -27,7 +27,7 @@ class HomeAction
         if (!CheckLogin::checkLogin()) {
             return $response->withRedirect('/login');
         } else {
-            return $response->withRedirect('/admin/home');
+            return $response->withRedirect('/admin/dashboard');
         }
     }
 
@@ -36,7 +36,7 @@ class HomeAction
         if (!CheckLogin::checkLogin()) {
             return $this->view->render($response, 'login.twig');
         } else {
-            return $response->withRedirect('/admin/home');
+            return $response->withRedirect('/admin/dashboard');
         }
     }
 
@@ -44,7 +44,7 @@ class HomeAction
     {
         if ($data = $this->resource->doLogin($request->getParsedBody())) {
             CheckLogin::setLogin($data);
-            return $response->withRedirect('/admin/home');
+            return $response->withRedirect('/admin/dashboard');
         } else {
             return $this->view->render($response, 'login.twig',
                 [
@@ -74,7 +74,7 @@ class HomeAction
     {
         $data = $request->getParsedBody();
 
-        if (!isset($data['usuario']) || !isset($data['senha']) || !isset($data['creci']) || !isset($data['nome'])) {
+        if (!isset($data['senha']) || !isset($data['creci']) || !isset($data['nome'])) {
             return $this->view->render($response, 'register.twig',
                 [
                     'error' => [
@@ -84,9 +84,9 @@ class HomeAction
                 ]
             );
         } else {
-            if ($this->resource->doRegister($request->getParsedBody())) {
-                CheckLogin::setLogin();
-                return $response->withRedirect('/admin/home');
+            if ($data = $this->resource->doRegister($request->getParsedBody())) {
+                CheckLogin::setLogin($data);
+                return $response->withRedirect('/admin/dashboard');
             } else {
                 return $this->view->render($response, 'register.twig',
                     [
