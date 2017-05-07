@@ -32,8 +32,19 @@ class ProprietarioAction
         if (!CheckLogin::checkLogin()) {
             return $response->withRedirect('/login');
         } else {
-            $resource = $this->resource->findAllProprietarios($_SESSION['user']);
-            return $this->view->render($response, '/pages/proprietario/home.twig', $_SESSION['user']);
+            if($resource = $this->resource->findAllProprietarios($_SESSION['user'])){
+                return $this->view->render($response, '/pages/proprietario/home.twig',
+                    ['data' => $resource]);
+            }else{
+                return $this->view->render($response, '/pages/proprietario/home.twig',
+                    [
+                        'error' => [
+                            'code' => 404,
+                            'message' => Messages::ERR_001
+                        ]
+                    ]
+                );
+            }
         }
     }
 

@@ -15,7 +15,7 @@ class HomeResource extends AbstractResource
 {
     public function doLogin($data){
 
-        $query = "SELECT senha, creci, nome
+        $query = "SELECT senha, creci, nome, codigo
                   FROM corretor 
                   WHERE creci = '" . $data['creci'] . "'";
 
@@ -47,6 +47,7 @@ class HomeResource extends AbstractResource
                 $obj = new \stdClass();
                 $obj->creci = $data['creci'];
                 $obj->nome = $data['nome'];
+                $obj->codigo = $data['nome'];
                 return $obj;
             }else{
                 return false;
