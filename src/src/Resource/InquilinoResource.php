@@ -1,26 +1,25 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: ilson.nobrega
- * Date: 04/05/17
- * Time: 00:21
+ * User: Ilson Nóbrega
+ * Date: 13/05/2017
+ * Time: 11:11
  */
 
 namespace Imobilize\Src\Resource;
 
 
-class ProprietarioResource extends AbstractResource
+class InquilinoResource extends AbstractResource
 {
-    public function findAllProprietarios($user)
+    public function findAll($user)
     {
         $query = "SELECT pf.nome,pf.cpf,pf.rg,pf.telefone,pf.email
                 FROM pessoa_fisica pf
-                JOIN proprietario pr
-                ON pf.codigo = pr.pessoa_fisica_codigo
-                JOIN contrato_corretagem cc
-                ON cc.proprietario_codigo = pr.codigo
-                WHERE cc.corretor_codigo = " . $user['data']->codigo;
-
+                JOIN inquilino iq
+                ON pf.codigo = iq.pessoa_fisica_codigo
+                JOIN contrato_aluguel ca
+                ON ca.inquilino_codigo = iq.codigo
+                WHERE ca.corretor_codigo = " . $user['data']->codigo;
 
         $dbFactory = $this->dbFactory;
         $stmt = $dbFactory::prepare($query);
@@ -33,5 +32,4 @@ class ProprietarioResource extends AbstractResource
             return false;
         }
     }
-
 }

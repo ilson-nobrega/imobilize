@@ -23,7 +23,6 @@ class HomeResource extends AbstractResource
         $stmt = $dbFactory::prepare($query);
         $stmt->execute();
         $result = $stmt->fetch();
-
         if($result && Validator::verifyEncryptedFieldValue($result->senha, $data['senha'])){
             unset($result->senha);
             return $result;
@@ -47,7 +46,7 @@ class HomeResource extends AbstractResource
                 $obj = new \stdClass();
                 $obj->creci = $data['creci'];
                 $obj->nome = $data['nome'];
-                $obj->codigo = $data['nome'];
+                $obj->codigo = $data['codigo'];
                 return $obj;
             }else{
                 return false;

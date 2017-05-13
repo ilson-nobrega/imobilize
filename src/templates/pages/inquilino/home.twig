@@ -6,12 +6,12 @@
 {% endblock customCss %}
 
 {% block contentHeader %}
-    Proprietários
+    Inquilinos
 {% endblock contentHeader %}
 
 {% block content %}
     <div class="panel-body">
-        <table width="100%" class="table table-striped table-bordered table-hover" id="proprietarios">
+        <table width="100%" class="table table-striped table-bordered table-hover" id="inquilinos">
             <thead>
             <tr>
                 <th>CPF</th>
@@ -23,13 +23,13 @@
             </tr>
             </thead>
             <tbody>
-            {% for proprietario in data %}
+            {% for inquilino in data %}
                 <tr class="odd gradeX">
-                    <td>{{ proprietario.cpf }}</td>
-                    <td>{{ proprietario.nome }}</td>
-                    <td>{{ proprietario.rg }}</td>
-                    <td>{{ proprietario.telefone }}</td>
-                    <td>{{ proprietario.email }}</td>
+                    <td>{{ inquilino.cpf }}</td>
+                    <td>{{ inquilino.nome }}</td>
+                    <td>{{ inquilino.rg }}</td>
+                    <td>{{ inquilino.telefone }}</td>
+                    <td>{{ inquilino.email }}</td>
                     <td>
                         <a href="#">
                             <i class="fa fa-plus-circle"></i>
@@ -54,7 +54,7 @@
 <script src="../vendor/datatables-responsive/dataTables.responsive.js"></script>
 <script>
     $(document).ready(function() {
-        $('#proprietarios').DataTable({
+        $('#inquilinos').DataTable({
             responsive: true,
             language: {
                 url: "../dist/js/ptbr.datatable.json"
