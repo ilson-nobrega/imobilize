@@ -1,27 +1,18 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: ilson.nobrega
- * Date: 04/05/17
- * Time: 00:21
- */
-
 namespace Imobilize\Src\Controller;
 
-
 use Imobilize\Src\Helper\CheckLogin;
-use Imobilize\Src\Helper\Messages;
-use Imobilize\Src\Resource\ProprietarioResource;
+use Imobilize\Src\Resource\ImovelResource;
 use Psr\Log\LoggerInterface;
 use Slim\Views\Twig;
 
-class ProprietarioAction
+class ImovelAction
 {
     private $logger;
     private $view;
     private $resource;
 
-    public function __construct(LoggerInterface $logger, Twig $view, ProprietarioResource $resource)
+    public function __construct(LoggerInterface $logger, Twig $view, ImovelResource $resource)
     {
         $this->logger = $logger;
         $this->view = $view;
@@ -33,11 +24,11 @@ class ProprietarioAction
         if (!CheckLogin::checkLogin()) {
             return $response->withRedirect('/login');
         } else {
-            if ($resource = $this->resource->findAllProprietarios($_SESSION['user'])) {
-                return $this->view->render($response, '/pages/proprietario/home.twig',
+            if ($resource = $this->resource->findAll($_SESSION['user'])) {
+                return $this->view->render($response, '/pages/imovel/home.twig',
                     ['data' => $resource]);
             } else {
-                return $this->view->render($response, '/pages/proprietario/home.twig',
+                return $this->view->render($response, '/pages/imovel/home.twig',
                     [
                         'error' => [
                             'code' => 404,

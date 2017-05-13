@@ -50,6 +50,10 @@ $container['InquilinoAction'] = function ($c) {
     $resource = new Imobilize\Src\Resource\InquilinoResource($c->get('dbFactory'));
     return new \Imobilize\Src\Controller\InquilinoAction($c->get('logger'), $c->get('view'), $resource);
 };
+$container['ImovelAction'] = function ($c) {
+    $resource = new Imobilize\Src\Resource\ImovelResource($c->get('dbFactory'));
+    return new \Imobilize\Src\Controller\ImovelAction($c->get('logger'), $c->get('view'), $resource);
+};
 
 // -----------------------------------------------------------------------------
 // Database Factory
