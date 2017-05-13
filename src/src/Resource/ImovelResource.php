@@ -9,6 +9,8 @@
 namespace Imobilize\Src\Resource;
 
 
+use Imobilize\Src\Helper\Constantes;
+
 class ImovelResource extends AbstractResource
 {
     public function findAll($user)
@@ -29,6 +31,11 @@ class ImovelResource extends AbstractResource
         $stmt = $dbFactory::prepare($query);
         $stmt->execute();
         $result = $stmt->fetchAll();
+
+        foreach ($result as $data){
+            $data->status = constant(Constantes::class."::STATUS_IMOVEL_$data->status");
+            $data->tipo_imovel = constant(Constantes::class."::TIPO_IMOVEL_$data->tipo_imovel");
+        }
 
         if ($result) {
             return $result;
