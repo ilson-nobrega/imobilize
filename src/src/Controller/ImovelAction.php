@@ -2,6 +2,7 @@
 namespace Imobilize\Src\Controller;
 
 use Imobilize\Src\Helper\CheckLogin;
+use Imobilize\Src\Helper\Constantes;
 use Imobilize\Src\Resource\ImovelResource;
 use Psr\Log\LoggerInterface;
 use Slim\Views\Twig;

@@ -13,6 +13,7 @@ class ImovelResource extends AbstractResource
 {
     public function findAll($user)
     {
+        print_r($user);exit;
         $query = "SELECT im.codigo, im.status, im.tipo_imovel, im.numero_quartos, en.bairro, ci.nome as cidade, uf.sigla
                     FROM imovel im
                     JOIN endereco en

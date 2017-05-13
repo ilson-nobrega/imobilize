@@ -8,7 +8,7 @@ class Constantes
     const SEX_002 = 'Feminino';
     const SEX_003 = 'Outros';
 
-    public function getSex($id){
-        return SEX_00.$id;
+    public static function getSex($id){
+        echo constant('SEX_00'.$id);
     }
 }
