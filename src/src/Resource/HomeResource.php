@@ -46,7 +46,7 @@ class HomeResource extends AbstractResource
                 $obj = new \stdClass();
                 $obj->creci = $data['creci'];
                 $obj->nome = $data['nome'];
-                $obj->codigo = $data['codigo'];
+                $obj->codigo = $dbFactory::lastInsertId();
                 return $obj;
             }else{
                 return false;
