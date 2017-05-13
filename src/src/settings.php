@@ -2,9 +2,9 @@
 
 define("dbFactoryData",
    [
-    'host' => 'localhost',
+    'host' => 'localhost:3307',
     'username' => 'root',
-    'password' => '123456',
+    'password' => 'root',
     'database' => 'imobilize'
    ]
 );
