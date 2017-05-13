@@ -54,6 +54,10 @@ $container['ImovelAction'] = function ($c) {
     $resource = new Imobilize\Src\Resource\ImovelResource($c->get('dbFactory'));
     return new \Imobilize\Src\Controller\ImovelAction($c->get('logger'), $c->get('view'), $resource);
 };
+$container['ContratoAction'] = function ($c) {
+    $resource = new Imobilize\Src\Resource\ContratoResource($c->get('dbFactory'));
+    return new \Imobilize\Src\Controller\ContratoAction($c->get('logger'), $c->get('view'), $resource);
+};
 
 // -----------------------------------------------------------------------------
 // Database Factory

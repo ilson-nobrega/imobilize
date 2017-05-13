@@ -24,3 +24,6 @@ $app->get('/admin/inquilinos', 'InquilinoAction:indexAction');
 
 //Imóveis
 $app->get('/admin/imoveis', 'ImovelAction:indexAction');
+
+//Imóveis
+$app->get('/admin/alugueis', 'ContratoAction:indexAction');
