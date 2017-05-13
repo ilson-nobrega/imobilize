@@ -1,11 +1,13 @@
 <?php
 
+$config = parse_ini_file(__DIR__.'/../../../database.ini', true);
+
 define("dbFactoryData",
    [
-    'host' => 'localhost:3307',
-    'username' => 'root',
-    'password' => 'root',
-    'database' => 'imobilize'
+    'host' => $config['database']['host'],
+    'username' => $config['database']['user'],
+    'password' => $config['database']['password'],
+    'database' => $config['database']['database']
    ]
 );
 
