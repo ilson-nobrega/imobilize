@@ -48,4 +48,24 @@ class ProprietarioAction
             }
         }
     }
+
+    public function getByIdAction($request, $response, $args){
+        if (!CheckLogin::checkLogin()) {
+            return $response->withRedirect('/login');
+        } else {
+            if ($resource = $this->resource->findOneBy($args['id'])) {
+                return $this->view->render($response, '/pages/proprietario/details.twig',
+                    ['data' => $resource]);
+            } else {
+                return $this->view->render($response, '/pages/proprietario/details.twig',
+                    [
+                        'error' => [
+                            'code' => 404,
+                            'message' => Messages::ERR_004
+                        ]
+                    ]
+                );
+            }
+        }
+    }
 }

@@ -1,0 +1,111 @@
+{% extends "admin.twig" %}
+
+{% block customCss %}
+<link href="/vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
+<link href="/vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
+{% endblock customCss %}
+
+{% block contentHeader %}
+    {% if(error) %}
+        Erro {{ error.code }}
+    {% else %}
+        {{ data.nome }}
+    {% endif %}
+{% endblock contentHeader %}
+
+{% block content %}
+    {% if(error) %}
+        <div class="alert alert-danger">{{ error.message }}</div>
+    {% else %}
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Dados Pessoais
+            </div>
+            <div class="panel-body">
+                <table class="table">
+                    <tr>
+                        <td>Nome:</td>
+                        <td>{{ data.nome }}</td>
+                    </tr>
+                    <tr>
+                        <td>CPF:</td>
+                        <td>{{ data.cpf }}</td>
+                    </tr>
+                    <tr>
+                        <td>RG:</td>
+                        <td>{{ data.rg }}</td>
+                    </tr>
+                    <tr>
+                        <td>Sexo:</td>
+                        <td>{{ data.sexo }}</td>
+                    </tr>
+                    <tr>
+                        <td>Data de Nascimento:</td>
+                        <td>{{ data.data_nascimento | date("d/m/Y") }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Dados de Contato
+            </div>
+            <div class="panel-body">
+                <table class="table">
+                    <tr>
+                        <td>Telefone:</td>
+                        <td>{{ data.telefone }}</td>
+                    </tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td>{{ data.email }}</td>
+                    </tr>
+                    <tr>
+                        <td>Logradouro:</td>
+                        <td>{{ data.logradouro }}</td>
+                    </tr>
+                    <tr>
+                        <td>Número:</td>
+                        <td>{{ data.numero }}</td>
+                    </tr>
+                    <tr>
+                        <td>Bairro:</td>
+                        <td>{{ data.bairro }}</td>
+                    </tr>
+                    <tr>
+                        <td>CEP:</td>
+                        <td>{{ data.cep }}</td>
+                    </tr>
+                    <tr>
+                        <td>UF:</td>
+                        <td>{{ data.uf_nome }}</td>
+                    </tr>
+                    <tr>
+                        <td>Cidade:</td>
+                        <td>{{ data.cidade_nome }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+{% endblock content %}
+
+{% block customJs %}
+<script src="/vendor/datatables/js/jquery.dataTables.min.js"></script>
+<script src="/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+<script src="/vendor/datatables-responsive/dataTables.responsive.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#proprietarios').DataTable({
+            responsive: true,
+            language: {
+                url: "../dist/js/ptbr.datatable.json"
+            }
+        });
+    });
+</script>
+{% endblock customJs %}

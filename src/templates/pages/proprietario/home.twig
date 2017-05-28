@@ -31,14 +31,17 @@
                     <td>{{ proprietario.telefone }}</td>
                     <td>{{ proprietario.email }}</td>
                     <td>
-                        <a href="#">
+                        <a href="#" title="Adicionar Novo">
                             <i class="fa fa-plus-circle"></i>
                         </a>
-                        <a href="#">
+                        <a href="#" title="Editar Registro">
                             <i class="fa fa-edit"></i>
                         </a>
-                        <a href="#">
+                        <a href="#" title="Remover">
                             <i class="fa fa-times"></i>
+                        </a>
+                        <a href="/admin/proprietarios/{{ proprietario.proprietario_codigo }}" title="Ver Detalhes">
+                            <i class="fa fa-eye"></i>
                         </a>
                     </td>
                 </tr>
