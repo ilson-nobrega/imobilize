@@ -19,6 +19,7 @@ $app->get('/admin/dashboard', 'AdminAction:indexAction');
 //Proprietários
 $app->get('/admin/proprietarios', 'ProprietarioAction:indexAction');
 $app->get('/admin/proprietarios/{id}', 'ProprietarioAction:getByIdAction');
+$app->delete('/admin/proprietarios/{id}', 'ProprietarioAction:deleteAction');
 
 //Inquilinos
 $app->get('/admin/inquilinos', 'InquilinoAction:indexAction');

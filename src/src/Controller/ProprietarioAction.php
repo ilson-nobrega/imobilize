@@ -68,4 +68,28 @@ class ProprietarioAction
             }
         }
     }
+    public function deleteAction($request, $response, $args){
+        if (!CheckLogin::checkLogin()) {
+            echo json_encode([
+                'error' => [
+                    'code' => 404,
+                    'message' => Messages::ERR_005
+                ]
+            ]);
+        } else {
+            if ($resource = $this->resource->delete($args['id'])) {
+                echo json_encode([
+                    'data' => [
+                        'error' => [],
+                        'success' => [
+                            'code' => 1,
+                            'message' => Messages::SCS_001
+                        ]
+                    ]
+                ]);
+            } else {
+
+            }
+        }
+    }
 }

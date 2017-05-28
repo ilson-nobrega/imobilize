@@ -21,7 +21,8 @@ class ProprietarioResource extends AbstractResource
                 ON pf.codigo = pr.pessoa_fisica_codigo
                 JOIN contrato_corretagem cc
                 ON cc.proprietario_codigo = pr.codigo
-                WHERE cc.corretor_codigo = " . $user['data']->codigo;
+                WHERE cc.corretor_codigo = " . $user['data']->codigo .
+                " AND pr.status = 1";
 
 
         $dbFactory = $this->dbFactory;
@@ -57,6 +58,20 @@ class ProprietarioResource extends AbstractResource
         if($result){
             $result->sexo = constant(Constantes::class."::SEXO_00$result->sexo");
             return $result;
+        }else{
+            return false;
+        }
+    }
+
+    public function delete($id) {
+        $query = "UPDATE proprietario SET status = 0 WHERE codigo = " . $id;
+
+        $dbFactory = $this->dbFactory;
+        $stmt = $dbFactory::prepare($query);
+        $result = $stmt->execute();
+
+        if($result){
+            return true;
         }else{
             return false;
         }
